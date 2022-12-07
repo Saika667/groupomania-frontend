@@ -38,7 +38,7 @@
         width: 100%;
         height: 100%;
         min-height: 100vh;
-        background: url('../public/images/background.png') center;
+        background: url('../images/background.png') center;
         background-size: cover;
         position: relative;
         padding-bottom: 80px;
