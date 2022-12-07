@@ -8,7 +8,7 @@
         data: function() {
             return {
                 // Remplace "process.env" côté node
-                apiUrl: import.meta.env.VITE_API_URL,
+                apiUrl: process.env.VITE_API_URL,
                 user: {
                     email: {
                         value: '',
