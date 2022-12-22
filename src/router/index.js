@@ -48,7 +48,7 @@ const routes = [
         }
     },
     {
-        path: "*",
+        path: "/:pathMatch(.*)*",
         component: HomePage
     }
 ];
