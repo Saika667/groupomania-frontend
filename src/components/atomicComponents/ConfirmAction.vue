@@ -34,7 +34,7 @@
                     <span>Non</span>
                 </div>
             </div>
-            <embed src="../../public/images/failure-corner.svg"/>
+            <embed src="../../images/failure-corner.svg"/>
         </div>
     </div>   
 </template>
