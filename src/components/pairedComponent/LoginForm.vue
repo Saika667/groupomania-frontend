@@ -6,9 +6,10 @@
             Button
         },
         data: function() {
+            console.log(import.meta.env.VITE_API_URL);
             return {
                 // Remplace "process.env" côté node
-                apiUrl: process.env.VITE_API_URL,
+                apiUrl: import.meta.env.VITE_API_URL,
                 user: {
                     email: {
                         value: '',
