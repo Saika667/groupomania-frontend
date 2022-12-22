@@ -49,11 +49,7 @@ const routes = [
     },
     {
         path: "*",
-        name: "home",
-        component: HomePage,
-        meta: {
-            title: "Accueil"
-        }
+        component: HomePage
     }
 ];
 
