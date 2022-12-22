@@ -46,6 +46,14 @@ const routes = [
         meta: {
             title: "Mon Profil"
         }
+    },
+    {
+        path: "*",
+        name: "home",
+        component: HomePage,
+        meta: {
+            title: "Accueil"
+        }
     }
 ];
 
