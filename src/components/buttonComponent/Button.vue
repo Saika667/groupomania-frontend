@@ -1,6 +1,13 @@
 <script>
     export default {
-        props: ['label', 'url']
+        props: ['label', 'url', 'size'],
+        computed: {
+            cssPadding() {
+                return {
+                    'padding': this.size === "small" ? "12px" : "12px 50px"
+                }
+            }
+        }
     }
 </script>
 
@@ -12,7 +19,7 @@
     $emit permet de transmettre une information au parent et "callback-event" est le nom de l'événement choisi
     -->
     <button type="button">
-        <span v-if="!url" v-on:click="this.$emit('callback-event')">{{ label }}</span>
+        <span v-if="!url" v-on:click="this.$emit('callback-event')" v-bind:style="cssPadding">{{ label }}</span>
         <router-link v-if="url" v-bind:to="url">{{ label }}</router-link>
     </button>
 </template>

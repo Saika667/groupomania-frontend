@@ -69,7 +69,33 @@
                     self.loginError = true;
                 });
             },
+            guestLogin: function() {
+                const self = this;
 
+                fetch(`${this.apiUrl}/auth/login`, {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        "email": "jinvitun@groupomania.fr",
+                        "password": "Guest123!"
+                    })
+                }).then(function(res) {
+                    if (res.ok) {
+                        return res.json();
+                    }
+                }).then(function(res) {
+                    if (res.token) {
+                        localStorage.setItem('userToken', res.token);
+                        // On redirige vers la page /home
+                        self.$router.push('/home');
+                    }
+                }).catch(function() {
+                    self.loginError = true;
+                });
+            },
             toggleInputFocus: function(evt) {
                 this.user[evt.target.id].isFocused = !this.user[evt.target.id].isFocused;
             },
@@ -125,7 +151,10 @@
         ici loginForm
         cet événement appel la méthode "login"
     -->
-        <Button label="Se connecter" @callback-event="login"/>
+        <div class="button">
+            <Button label="Se connecter" size="small" @callback-event="login"/>
+            <Button label="Connexion invité" size="small" @callback-event="guestLogin"/>
+        </div>
         
         <p class="forgotten">Mot de passe oublié ?</p>
     </form>
@@ -140,6 +169,11 @@
     }
     .checkbox {
         margin: 20px 0;
+    }
+    .button {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
     .forgotten {
         margin-top: 20px;
